@@ -1,20 +1,19 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
-import Home from './pages/Home';
-import Posts from './pages/Posts'
-import './App.css'
-
-// import { FaSuitcase } from 'react-icons/fa';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home, Feed, Dashboard, Create } from "./pages"
 
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/jobs' element={<Posts/>} />
-        </Routes>
-      </Router>
-    </>
+    <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/employer" >
+          <Route path="/employer/dashboard" element={<Dashboard />}/>
+          <Route path="/employer/create" element={<Create />}/>
+          </Route>
+          <Route path="/employee/feed" element={<Feed />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
